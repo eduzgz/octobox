@@ -5,10 +5,16 @@
     <div class="text-center">
       <%= image_tag 'screenshot.png', class: 'screenshot', alt: 'Octobox Screenshot' %>
       <p>
-      <%= link_to login_path, class: 'btn btn-outline-dark btn-lg' do %>
-        <%= octicon 'mark-github', height: 22 %>
-        Sign in with GitHub
-      <% end %>
+        <%= link_to login_path, class: 'btn btn-outline-dark btn-lg' do %>
+          <%= octicon 'mark-github', height: 22 %>
+          Sign in with GitHub
+        <% end %>
+        <% if Octobox.github_app? %>
+          <%= link_to Octobox.config.app_install_url, class: 'btn btn-outline-dark btn-lg' do %>
+            <%= octicon 'briefcase', height: 22 %>
+            Install the GitHub App
+          <% end %>
+        <% end %>
       </p>
       <p>
         <a class="github-button" href="https://github.com/octobox/octobox" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star octobox/octobox on GitHub">Star</a>
